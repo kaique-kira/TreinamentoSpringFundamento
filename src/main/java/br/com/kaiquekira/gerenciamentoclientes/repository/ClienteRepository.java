@@ -1,4 +1,4 @@
-package br.com.kaiquekira.gerenciamentoclientes.Repositorio;
+package br.com.kaiquekira.gerenciamentoclientes.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
