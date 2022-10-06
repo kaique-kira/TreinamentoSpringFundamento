@@ -1,0 +1,13 @@
+<nav th:fragment="nav" class="navbar bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="@{/}">KiraClientes</a>
+      <form class="d-flex">
+        <select class="form-select me-2" name="lang">
+          <option selected disabled th:text="#{navbar.idioma}">Selecione o idioma</option>
+          <option th:select="${#locale.toString() == 'pt'}" value="pt">Português</option>
+          <option th:select="${#locale.toString() == 'en'}" value="en">Inglês</option>
+        </select>
+        <button class="btn btn-outline-sucess" type="submit">OK</button>
+      </form>
+    </div>
+  </nav>

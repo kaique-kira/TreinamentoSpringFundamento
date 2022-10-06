@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout (~{::title}, ~{::main})}">
+  <head>
+    
+    <title
+      th:text="${cliente.id == null ? 'Spring Fundamentos - Cadastrar Novo Cliente' :
+   'Spring Fundamentos - Editar Cliente'}"
+    ></title>
+  </head>
+  <body>
+   
+    <main class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 th:text="${cliente.id != null ? 'Editar cliente' : 'Cadastrar novo cliente'}"></h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <form method="post" th:object="${cliente}">
+            <input type="hidden" th:field="*{id}" />
+
+            <div th:replace="~{fragments/_bootstrap-fields :: input ('nome', 'Nome', 'text')}"></div>
+            <div th:replace="~{fragments/_bootstrap-fields :: input ('dataNascimento', 'Data de Nascimento', 'date')}"></div>
+            <div th:replace="~{fragments/_bootstrap-fields :: input ('profissao', 'Profissão', 'text')}"></div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

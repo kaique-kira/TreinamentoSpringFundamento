@@ -22,7 +22,7 @@ public class ClienteController {
 
     @GetMapping
     public ModelAndView listar() {
-        ModelAndView modelAndView = new ModelAndView("cliente/listar.html");
+        ModelAndView modelAndView = new ModelAndView("cliente/listar");
         List<Cliente> clientes = clienteRepository.findAll();
         modelAndView.addObject("clientes", clientes);
 
@@ -31,7 +31,7 @@ public class ClienteController {
 
     @GetMapping("/{id}")
     public ModelAndView detalhar(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("cliente/detalhar.html");
+        ModelAndView modelAndView = new ModelAndView("cliente/detalhar");
 
         Cliente cliente = clienteRepository.getReferenceById(id);
         modelAndView.addObject("cliente", cliente);
@@ -49,7 +49,7 @@ public class ClienteController {
 
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar() {
-        ModelAndView modelAndView = new ModelAndView("cliente/cadastro");
+        ModelAndView modelAndView = new ModelAndView("cliente/formulario");
         modelAndView.addObject("cliente", new Cliente());
         return modelAndView;
     }
@@ -64,7 +64,7 @@ public class ClienteController {
 
     @GetMapping("/{id}/editar")
     public ModelAndView editar(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("cliente/edicao.html");
+        ModelAndView modelAndView = new ModelAndView("cliente/formulario");
 
         Cliente cliente = clienteRepository.getReferenceById(id);
         modelAndView.addObject("cliente", cliente);
@@ -73,7 +73,7 @@ public class ClienteController {
     }
 
     @PostMapping("/{id}/editar")
-    public ModelAndView editar (Cliente cliente) {
+    public ModelAndView editar(Cliente cliente) {
         ModelAndView modelAndView = new ModelAndView("redirect:/cliente");
         clienteRepository.save(cliente);
         return modelAndView;
